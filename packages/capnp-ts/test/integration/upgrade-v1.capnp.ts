@@ -29,3 +29,11 @@ export class Upgrade extends __S {
     toString(): string { return "Upgrade_" + super.toString(); }
 }
 Upgrade._SelfReferences = capnp.CompositeList(Upgrade);
+capnp.registerSchema(capnp.CodeGeneratorRequest, _capnpFileId, [
+    "eJy1k0FrE1EUhe95b9JSjZJhCkE3WblMHkPoppu2IqhdSCZakGx0zLwmU9N0nPcsbVEEd4IgiBt/gYhrN27EgqI/wE3BjSLiwj+gyHiTJtPQhaAo",
+    "zMDjm8N9955zp7S3KP1jHXgzslJCcQpBqTCV/eh8vHfiytMHFFwGssqHl5e+nzv5lgpymsh/LKT7mg/uqy+E7N2Tbqv57fYnwhKJ+nPMC+89yt5n",
+    "VEhkKJxZfPbm/h4FZwsTUkL9Kx4KzxVc5mJRSNDELWhyoZ/YFd4pUfZ8MSikVoxOjVo7GsXhjor0plobnObm/Lpqh0k/qVqjkrB9Pexoc0CsNlbF",
+    "fas7aWjjjb66mfAp0tVNvzYUza/sA2qAJ5cOkQOeLGwRBVclgp4AMIsBi5eZdZlZAVcwFAxvpAwThrcYSjELyXB7h+EWw0cCWU93wvb2hZDkukaR",
+    "BL9jeD4itsJh5jAzurfa1KuaKqnutzVKBykQUJpULAwVBscJDYlDSoa5XdN/ZpdJ28rYSFmzsG9P4HD8eYguWlm8nmyktsHj2C5/nYzYEVhiq4rs",
+    "AJazcVGaaGfmb9sZhTW+3KLLeQ3czEsf+ceLQcPRc19dnL4zWpXfTH03q9UUP70Y17h6pLc44KE+X26/sCvcavk/953/aS5ejHoyKQ6F+wv35Dy2"
+]);

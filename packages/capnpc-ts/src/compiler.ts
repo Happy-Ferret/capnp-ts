@@ -15,6 +15,7 @@ import {
   generateFileId,
   generateNode,
   generateNestedImports,
+  generateFileRequest,
 } from './generators';
 
 const trace = initTrace('capnpc:compile');
@@ -31,6 +32,8 @@ export function compile(ctx: CodeGeneratorFileContext): string {
   lookupNode(ctx, ctx.file).getNestedNodes().map((n) => lookupNode(ctx, n)).forEach((n) => generateNode(ctx, n));
 
   ctx.concreteLists.forEach(([fullClassName, field]) => generateConcreteListInitializer(ctx, fullClassName, field));
+
+  generateFileRequest(ctx);
 
   const sourceFile = ts.createSourceFile(ctx.tsPath, '', ts.ScriptTarget.Latest, false, ts.ScriptKind.TS);
   const printer = ts.createPrinter();

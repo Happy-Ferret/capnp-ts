@@ -21,7 +21,6 @@ export const BOOLEAN_TYPE = ts.createTypeReferenceNode('boolean', __);
 
 export const CAPNP = ts.createIdentifier('capnp');
 
-
 /** A Mapping of various types to their list type constructor. */
 
 export const ConcreteListType = {
@@ -82,6 +81,10 @@ export const OBJECT_SIZE = ts.createIdentifier('__O');
 /** readonly */
 
 export const READONLY = ts.createToken(ts.SyntaxKind.ReadonlyKeyword);
+
+/** _capnpReq */
+
+export const REQ = ts.createIdentifier('_capnpReq');
 
 /** No... comment? */
 

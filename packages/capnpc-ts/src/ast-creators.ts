@@ -7,10 +7,18 @@ import { format, pad } from 'capnp-ts/lib/util';
 import * as ts from 'typescript';
 
 import { CodeGeneratorFileContext } from './code-generator-file-context';
-import { __, READONLY, STATIC, VOID_TYPE } from './constants';
+import { __, READONLY, STATIC, VOID_TYPE, STRUCT, CAPNP } from './constants';
 import * as E from './errors';
 import { getDisplayNamePrefix, getFullClassName, getJsType } from './file';
 import * as util from './util';
+
+const POINTER_VALUES = [
+  s.Value_Which.ANY_POINTER,
+  s.Value_Which.DATA,
+  s.Value_Which.LIST,
+  s.Value_Which.STRUCT,
+  s.Value_Which.TEXT,
+];
 
 export function createClassExtends(identifierText: string): ts.HeritageClause {
 
@@ -30,10 +38,26 @@ export function createConcreteListProperty(ctx: CodeGeneratorFileContext, field:
 
 }
 
-export function createConstProperty(node: s.Node): ts.PropertyDeclaration {
+export function createConstProperty(parentNode: s.Node, node: s.Node): ts.PropertyDeclaration {
 
   const name = util.c2s(getDisplayNamePrefix(node));
-  const initializer = createValueExpression(node.getConst().getValue());
+  const value = node.getConst().getValue();
+  let initializer;
+
+  if (POINTER_VALUES.indexOf(value.which()) !== -1) {
+
+    const nodeIdHex = parentNode.getId().toHexString();
+    const fieldIndex = parentNode.getStruct().getFields().findIndex((f) => f.getName() === node.getDisplayName());
+
+    initializer = ts.createCall(
+      ts.createPropertyAccess(CAPNP, 'getPointerDefault'), __,
+      [ts.createLiteral(nodeIdHex), ts.createLiteral(fieldIndex)]);
+
+  } else {
+
+    initializer = createValueExpression(node.getConst().getValue());
+
+  }
 
   return ts.createProperty(__, [STATIC, READONLY], name, __, __, initializer);
 
@@ -134,7 +158,7 @@ export function createValueExpression(value: s.Value): ts.Expression {
 
     case s.Value.UINT64:
 
-      const uint64 = value.getInt64();
+      const uint64 = value.getUint64();
       const uint64Bytes: string[] = [];
 
       for (let i = 0; i < 4; i++) uint64Bytes.push(`0x${pad(uint64.buffer[i].toString(16), 2)}`);
@@ -158,7 +182,7 @@ export function createValueExpression(value: s.Value): ts.Expression {
     case s.Value.STRUCT:
     default:
 
-      throw new Error(format(E.GEN_SERIALIZE_UNKNOWN_VALUE, value.which()));
+      throw new Error(format(E.GEN_SERIALIZE_UNKNOWN_VALUE, s.Value_Which[value.which()]));
 
   }
 

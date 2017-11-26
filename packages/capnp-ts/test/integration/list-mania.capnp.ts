@@ -123,3 +123,18 @@ export class ListManiaStruct extends __S {
     toString(): string { return "ListManiaStruct_" + super.toString(); }
 }
 ListMania._CompositeList = capnp.CompositeList(ListManiaStruct);
+capnp.registerSchema(capnp.CodeGeneratorRequest, _capnpFileId, [
+    "eJy9ll1oHFUUx++5d2a/N7vjjFRBTJEIrZhM46ZVo5BdKZSUirsbSmvwoZPdSTLpJrvO3NQiFKEPWmufxKcioiCISEFBRIsgrWgb8KGCfdEXS1ua",
+    "gh8Iih8I4zmT2Z3ZFQTFFPZh9vc/c+7/nnvvubPjJC+L8fwFrq+lh4uQS0Btq5rwf3iu8ln+59PrTDsMjKmQZKw0DVxhoB+DKQb+vKqdWa9+8utG",
+    "gEL6GfhDMMVfe2txtv79sasMKoyXzsEk16/AFv0nGGbcf2LrgUdfTb5ykmkHhV/69EDz8o/fvM8YlH6BWaFv55hHv5fv0Wv05N+z/9Dzcx/c/RpG",
+    "QxS94eZh/pjQneAFmz+DjkDdXX7n81Nfs9oeFSIXmPscf5nrNyl05hoXgLEv3Wg8Mn3i7UsDiYuU+DK/TeiqoEcQLwgWC4A6zuh68jzX86kH9UqK",
+    "ZmTu92zXM5cKTcd61mzaR8wletq5c7xkNqzOSmdUembHahy2FmwvItL2pOmsSHvBtaTTXjFbjidHl60VxxoLgib3IXic/k9jlDtvNeyxBVv26Ejd",
+    "9lZb0mM1RSi4ArgKWn6SsVpKQG2Ew5Qb6DDEoCoAtKj0DAj2jA/dauNTVcu1lr2egeS/M+C5DdOTTVN6UxsD1hSIrb4Gs76z3Gm7smoxIRdR5bG9",
+    "oXCoGAA5rBbs9btJWaweuc2uh2jYVQBcNhW3ePccQffEadoS41o66Xdrxgr0bhnwnVvgcUa6qw3JyGCqt6+234f7agT31Q4OAFg+ZKPEtiGb4FA4",
+    "0naaLFHw7NY8FKPThTutGKts+r8udGiyu6wSFtEfrmF0+rKbVRCwqBTlbin092AvtpF3QcDMF8BBC8uhr4GL/CLxa8Q5N4AjvxLEf0v8T+JCGCCQ",
+    "/w5zyH8jbnDkimIAjqFrnHgR29TM/cRV1QDcJ9gaKc824ruJJxIGJJBXeB15mfhTxJNJg9qj/mTADxKXxFMpA1LInw54h/gp4um0AWnkL3Lyf4L4",
+    "m8QzGQMyyN8Ixn2d+MfEs1kDssg/CvJ8SPwr4rmcQYdK/5LPIr9E/Dvi+bwBeeQ3A75OXBHIh4YM7EJMB4G8LhDfRbhQMKCA+E5Bw95BfAK5P9du",
+    "t2hJGO6psKMB40Efa7RxW3iOZMM2RXTlYnR7hA2vaUlrIEc+zDHfaluy9MA+loxlyMTFXRP9YjYUcRM9NJCUR9L4LtQY9N4SkYSj9UlKJOFYfZIa",
+    "SUE/HZjp31u7tI/KAVO5MMdqaDiWPhGTyDATUe5kTCPHcS0V08hyXEuHGjWGfidM9N0+mf/54LJaDuL3u1aPfXNop2OfFLcf97uHnIHlRwc+atMx",
+    "GPbFf7hNjvtjYyb+Wg7MocWmfRQnHcT3vh/G1fNcG92yiZOnq7D36aPB2dCT58LApfkXCNS6ZQAAZg=="
+]);

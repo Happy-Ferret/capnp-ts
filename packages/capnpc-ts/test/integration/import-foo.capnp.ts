@@ -18,3 +18,12 @@ export class Foo extends __S {
     setBaz(value: Baz): void { __S.copyFrom(value, __S.getPointer(0, this)); }
     toString(): string { return "Foo_" + super.toString(); }
 }
+capnp.registerSchema(capnp.CodeGeneratorRequest, _capnpFileId, [
+    "eJy1Uz1o1GAYfp8vSa9XelxCCtdFCjdY9LzGcLRDFn8GQcGfVDo4iOTuYr1KkyOJhZ4I6qTdHFxEXF3dPEERBx0KCgou7kJxu04eip9fcrmkgzi1",
+    "Q+Dj+548z/M+7/uq309KZqnC9EPSnIrpCdizygQfXtypHrnx+inhMjFzsC2eUSGJL+F94erhhSFpV8Af9l/8+lZb+U0KCkQNBT+YbsZHvY4TBP6y",
+    "vtNvPtjdTcAZ4wh8PgZvJuBbCTgjixUbjyEk36Gif8QcMX7vwvH+7Ts/3xCmiOmfcV//inl9kLwdu3b37bPhh1dkqwpyJEEf4ouuMCGxzCQICWMl",
+    "dIPQWJtqd5ye0XY3jLX4tLhoNoyW0/W69Sg0uk7rprPqhqObVnwVuWFkdLzIXQ2cqON7Rme96wdRvekECwmKyJaxt15UC6ed3r4LXvf9kWDZOuP7",
+    "lwBblmQiGURaqSpcTEqwZxgKTacHNfdDgHqQ9ZctUe1/7QSYJia+/TeRZZI2IZ9Q0QSRkrjcOyMyw6kZCCfi/Rw/63WiwG+7IiGekBitGmopnz0p",
+    "6LI/teIy//Ro8GfzeVs0uHiUe866GwqjBLccn/8hNJsKPRmRW5YDz/Oj2L/khUSZJks1rTEpXBFnnFnCmu2GqWwzzZw/0BDjqrMt0opb+eZqpS1u",
+    "pJZRG8dEfDwOyPfhL9TpbhQAbhQ="
+]);

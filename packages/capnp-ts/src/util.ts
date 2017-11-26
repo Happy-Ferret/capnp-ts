@@ -6,11 +6,107 @@
 /* tslint:disable:no-any no-unsafe-any */
 import initTrace from 'debug';
 
-import {MAX_BUFFER_DUMP_BYTES, MAX_INT32, MAX_UINT32} from './constants';
-import {RANGE_INT32_OVERFLOW, RANGE_INVALID_UTF8, RANGE_UINT32_OVERFLOW} from './errors';
+import { B64, MAX_BUFFER_DUMP_BYTES, MAX_INT32, MAX_UINT32 } from './constants';
+import { RANGE_INT32_OVERFLOW, RANGE_INVALID_BASE64, RANGE_INVALID_UTF8, RANGE_UINT32_OVERFLOW } from './errors';
 
 const trace = initTrace('capnp:util');
 trace('load');
+
+export function base64ToBuffer(base64: string): Uint8Array {
+
+  let l = base64.length;
+
+  if (l % 4 !== 0) throw new Error(RANGE_INVALID_BASE64);
+  let r = 0;
+  if (base64.substr(-2, 1) === '=') r++;
+  if (base64.substr(-1, 1) === '=') r++;
+
+  const buf = new Uint8Array(l - r);
+  let j = 0;
+
+  for (let i = 0; i < l - 4; i += 4) {
+
+    const a = B64.indexOf(base64[i]);
+    const b = B64.indexOf(base64[i + 1]);
+    const c = B64.indexOf(base64[i + 2]);
+    const d = B64.indexOf(base64[i + 3]);
+
+    if (
+      a === -1 || a === 64 || b === -1 || b === 64 ||
+      c === -1 || c === 64 || d === -1 || d === 64
+    ) {
+      throw new Error(RANGE_INVALID_BASE64);
+    }
+
+    buf[j++] = (a << 2 & 0b11111100) | (b >> 4 & 0b00000011);
+    buf[j++] = (b << 4 & 0b11110000) | (c >> 2 & 0b00001111);
+    buf[j++] = (c << 6 & 0b11000000) | (d & 0b00111111);
+
+  }
+
+  const a = B64.indexOf(base64[l - 4]);
+  const b = B64.indexOf(base64[l - 3]);
+  const c = B64.indexOf(base64[l - 2]);
+  const d = B64.indexOf(base64[l - 1]);
+
+  if (a === -1 || a === 64 || b === -1 || b === 64) throw new Error(RANGE_INVALID_BASE64);
+
+
+
+  buf[j] = a << 2;
+
+
+
+
+  return buf;
+
+}
+
+/**
+ * Encode an ArrayBuffer's contents using Base 64.
+ *
+ * Based on https://gist.github.com/jonleighton/958841
+ *
+ * @param {Uint8Array} buf The buffer to encode.
+ * @returns {string} Base 64 encoded contents of the buffer.
+ */
+
+export function bufferToBase64(buf: Uint8Array): string {
+
+  let ret = '';
+  const l = buf.byteLength;
+  const r = l % 3;
+  const m = l - r;
+
+  for (let i = 0; i < l; i += 3) {
+
+    const t = (buf[i] << 16) | (buf[i + 1] << 8) | buf[i + 2];
+
+    // Use bitmasks to extract 6-bit segments from the triplet
+    ret += B64[(t & 16515072) >> 18];
+    ret += B64[(t & 258048) >> 12];
+    ret += B64[(t & 4032) >> 6];
+    ret += B64[t & 63];
+
+  }
+
+  if (r === 1) {
+
+    const t = buf[m];
+
+    ret += `${B64[(t & 252) >> 2]}${B64[t & 3 << 4]}==`;
+
+  } else if (r === 2) {
+
+    const t = (buf[m] << 8) | buf[m + 1];
+
+    ret += `${B64[(t & 64512) >> 10]}${B64[(t & 1008) >> 4]}${B64[(t & 15) << 2]}=`;
+
+  }
+
+  return ret;
+
+}
 
 /**
  * Dump a hex string from the given buffer.

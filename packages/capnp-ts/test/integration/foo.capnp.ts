@@ -13,3 +13,10 @@ export class Foo extends __S {
     setBar(value: string): void { __S.setText(0, value, this); }
     toString(): string { return "Foo_" + super.toString(); }
 }
+capnp.registerSchema(capnp.CodeGeneratorRequest, _capnpFileId, [
+    "eJy1Uj1Lw0AYfp9LYhUsNkToKAiO9gjVwS4qiIIiGsVBt9jGNn40JXeICDo4FCni4ObiJAj6AwTRwUXwLwiC4uTgT5B4rR8pDoKgcAcv9748X/em",
+    "joc0O1mEZbOuFNpb4KSMlmi32vdcdfePyHQQPW5fTo1G5w9kIEFkH54y81oV5tUgIbo9KS3MvGw9EYaJ2fc5Zr6mrSS6iEUwRobObvbuyBkzmgYJ",
+    "WRMHzBqoo832QQM1cWCCWLYHNWZNIm3NN4D4nPBCwZfbCr67yQveOl+uV/39dpbn3Uq50isFr7j5FbfoifhFekJyvyy9YuhKPyjzpSDINLodudEg",
+    "mAYcXdOJdCgzyW4ip1WD08mQWHRDtBNTF1/kid+RizDPhSxwKQbfOR0diCMxsRD5a5UglNMuabKkus2B6QzDnVD8anA8+gSlJjm/zCKW864m90ku",
+    "UVJB1N3+fcwq0brpeJnQnVDB/+B1J8pkuDqrPhYVZsHboAYIixfENmrM7E3/m9qvPTVx8aFGhPj2mW+Q1weo"
+]);

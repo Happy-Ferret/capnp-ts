@@ -13,3 +13,8 @@ export class Baz extends __S {
     setBar(value: string): void { __S.setText(0, value, this); }
     toString(): string { return "Baz_" + super.toString(); }
 }
+capnp.registerSchema(capnp.CodeGeneratorRequest, _capnpFileId, [
+    "eJwTiHJgFuTdLizJKC/AyMPGGMjByvZ/u+6LHUkdnz4xCEYy/v/p/0JJM2PPHAZWRnYGBkPHV0yCuUCGYKY9A5IkYzADk2HnKSbBreIMzP/1Q4tT",
+    "i4r1s7hSMhOr9FNSy/SzQCxTU0Nj/eTEgrwC3ZJi/YLE5OzE9NRiiEgySKgktbhEPzOvJDW9KLEkMz9PPzO3IL+oRDcpsUgPrIrfyimxKoCRMZCF",
+    "mYWBgYUR6A5eJQaGQA5mxkARJkZ2oEJGHgYmIGaknSOA9rEwMiKFEqMSO9BZQEEmRIAYsgIDw5Cdlq4AhgMAMQCRpgAApg=="
+]);

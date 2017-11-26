@@ -7,6 +7,10 @@
 const tmpWord = new DataView(new ArrayBuffer(8));
 (new Uint16Array(tmpWord.buffer))[0] = 0x0102;
 
+/** Used to convert to/from base64. */
+
+export const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+
 /** Default size (in bytes) for newly allocated segments. */
 
 export const DEFAULT_BUFFER_SIZE = 4096;

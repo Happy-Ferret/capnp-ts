@@ -6,6 +6,7 @@
   "dependencies": {
     "debug": "^2.6.3",
     "format": "^0.2.2",
+    "pako": "^1.0.6",
     "tslib": "^1.7.1",
     "utf8-encoding": "^0.1.2"
   },
@@ -14,6 +15,7 @@
     "@types/benchmark": "^1.0.30",
     "@types/debug": "0.0.29",
     "@types/node": "^7.0.18",
+    "@types/pako": "^1.0.0",
     "benchmark": "^2.1.4",
     "tap": "^10.7.0",
     "testcheck": "^1.0.0-rc.2"

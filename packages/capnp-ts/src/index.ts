@@ -50,7 +50,18 @@ export {
   getUint64Mask,
   getUint8Mask,
 
+  dumpSchema,
+  getTextDefault,
+  getPointerDefault,
+  registerSchema,
+
 } from './serialization';
+
+export {
+
+  CodeGeneratorRequest,
+
+} from './std/schema.capnp';
 
 export {
 

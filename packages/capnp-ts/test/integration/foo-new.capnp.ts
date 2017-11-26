@@ -15,3 +15,11 @@ export class Foo extends __S {
     setBaz(value: string): void { __S.setText(1, value, this); }
     toString(): string { return "Foo_" + super.toString(); }
 }
+capnp.registerSchema(capnp.CodeGeneratorRequest, _capnpFileId, [
+    "eJy1ks0rRFEYxt/n3LkGjcztKispWbCYOaZho4QSpcQlG7tr5pq5PuaOe06+ioWFLLCws7FVbJWSjQXFn2BFVhb+hutczEeKotQ59fact+f83o/4",
+    "+YCWasjBXGatccRqYMX1mmB3p/tlxz44JmMawdPW1fhwcPFIOosSpY7umXGjAuN6lRDcneRnJl83nwmDxNIt6GVmH5rNMbQSC6APDZzd7j2QNaJX",
+    "pRLSFg6ZuQ5lMyWhgap+wbgycnDKzH1ldPRuxKeF4ws+X5917Q2edVb4fBj19KTSPGMXC8WEFLxoZxbsnCMqinSE5G5BOjnflq5X4HOelyg4q8n3",
+    "jN5hzyOaAKxaLUIUgaqps43IatdgdTEYQBNCMRGKHUrsZojO2j5ixNQN441SXEaM/g5R+BkuZJZL0f9BZUWASuMMzATuUtHz5YRNmsyr1+q2RhgG",
+    "FWNMQWI0KJlSFU7dX3E+e1T6XCKvOhVW+1fr74fRWK67sndoi6rx/FDudpBMcnUWXcwq26yzRmpKYX55k1L6KTMSzf8JXN5pA5efQMLHl5G+AX2Y",
+    "EKMAEKM="
+]);
